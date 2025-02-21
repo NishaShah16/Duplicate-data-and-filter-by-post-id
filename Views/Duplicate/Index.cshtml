@@ -1,0 +1,214 @@
+﻿@*@model List<DiplicateReport.Models.Duplicate>*@
+
+@model IEnumerable<IGrouping<int, DiplicateReport.Models.Duplicate>>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SSCNR</title>
+
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+
+
+
+
+    <style>
+
+
+
+
+
+        .examination_tb th {
+            background: #ccc;
+        }
+
+        .referPage {
+            color: #FFF;
+            background: #000;
+            color: #FFF;
+            padding: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .colorBlue {
+            color: #000;
+        }
+
+        .colorRed {
+            color: red;
+        }
+
+
+        thead.report-header {
+            display: table-header-group;
+        }
+
+
+        
+
+        @@media print {
+            @@page {
+                margin: 0;
+            }
+
+            .pageBreak {
+                page-break-after: always;
+            }
+
+            .GeneralInstructionsTB th {
+                background-color: #ccc !important;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .examination_tb th {
+                background-color: #ccc !important;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .referPage {
+                background-color: #000 !important;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .waterMark {
+                background-color: #fefdf3 !important;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .colorBlue {
+                color: #000;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .colorRed {
+                color: red;
+                -webkit-print-color-adjust: exact;
+            }
+
+            thead.report-header {
+                display: table-header-group;
+            }
+        }
+
+      @@media print {
+
+
+            .hideOnPrint {
+                display: none;
+            }
+        }
+
+
+    </style>
+
+
+</head>
+
+<body style="font-family: 'Arial', sans-serif; line-height:1.5;">
+    @if (TempData["Message"] != null)
+    {
+        <div class="hideOnPrint alert alert-info">
+            @TempData["Message"]
+        </div>
+    }
+
+    <form method="get" action="@Url.Action("Index", "Duplicate")" class="hideOnPrint form-inline mb-3" id="searchForm">
+        <div class="searchPost form-group">
+            <label for="searchPost" class="mr-2">Search Post:</label>
+            <input type="text" name="searchPost" id="searchPost" class="  form-control" placeholder="Enter Post value" />
+        </div>
+        <button type="submit" class="btn btn-primary ml-2">Search</button>
+        @*<button type="button" id="generatePdfBtn" class="btn btn-secondary ml-2">Generate PDF</button>*@
+    </form>
+    @*<a href="@Url.Action("GeneratePdf", "Duplicate", new { searchPost = Request.QueryString["searchPost"] })" class="hideOnPrint btn btn-danger">
+        Download PDF
+    </a>*@
+    @if (Model != null && Model.Any())
+    {
+        <div class="hideOnPrint alert alert-info">
+            Data Found
+        </div>
+    }
+    else
+    {
+        <div class="hideOnPrint alert alert-info">
+            No Data Found
+        </div>
+    }
+        <table style="width:1071px; margin:20px auto 30px auto; padding:0; border-collapse:collapse;" cellpadding="0" cellspacing="0">
+            <thead style="display: table-header-group;">
+                <tr>
+                    <th colspan="4" style="padding:10px; width:100px;">
+                        <div style="width:100%; display:flex; align-items:center; justify-content:center; position:relative; flex-wrap:wrap; text-align:center;">
+                            <div class="colorBlue" style="font-size:26px; width:100%; margin:20px 0 0 0;">
+                                <h3><b>Constable GD 2025</b></h3><strong>Multiple Registration (Different details)</strong>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                @*<form method="get" action="@Url.Action("Index", "Duplicate")" class="form-inline mb-3">
+                        <div class="form-group">
+                            <label for="searchPost" class="mr-2">Search Post:</label>
+                            <input type="text" name="searchPost" id="searchPost" class="form-control" placeholder="Enter Post value" />
+                        </div>
+                        <button type="submit" class="btn btn-primary ml-2">Search</button>
+                    </form>*@
+                <tr>
+                    <th style="border:1px #000 solid; padding:10px; width:100px;">S. No.</th>
+                    <th style="border:1px #000 solid; padding:10px; width:300px;">Registration</th>
+                    <th style="border:1px #000 solid; padding:10px; width:529px;">Name</th>
+                    <th style="border:1px #000 solid; padding:10px; width:140px;">Photo</th>
+                </tr>
+
+            </thead>
+
+            
+
+            @foreach (var group in Model)
+            {
+                <tr>
+                    <td colspan="4" style="border:1px #000 solid; background-color:#f0f0f0;">
+                        <div style="padding:10px; font-weight:bold;">@*Group: IndexNo = @group.Key*@</div>  <!-- Display group key (IndexNo) -->
+                        <div style="display:flex; flex-direction:column;">
+
+                            @foreach (var item in group)
+                            {
+                                <div style="display:flex; align-items:center; border-bottom:1px solid #ddd; padding:5px;">
+                                    <div style="padding:10px; width:100px;">@item.id</div>
+                                    <div style="padding:10px; width:300px;">@item.RegistrationNo</div>
+                                    <div style="padding:10px; width:529px;">@item.CandidateName</div>
+                                    <div style="padding:10px; width:140px;">
+                                        <img src="~/Duplicate Registration/@item.PhotoPath" style="width:120px; height:130px; border:1px #000 solid;" />
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+
+
+
+
+
+        <!--<div style="page-break-after:always;"></div>-->
+
+
+    </body>
+
+</html>

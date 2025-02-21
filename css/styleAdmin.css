@@ -1,0 +1,163 @@
+﻿.profileImg{width:100%; padding-top:100%; position:relative;}
+.profileImg img{position: absolute; left: 50%; top: 50%; width: 80%; height: 80%; border-radius: 50%; transform: translate(-50%, -50%);}
+.enrolledFor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+    .enrolledFor .contWrap {
+        padding: 15px;
+        position: relative;
+    }
+
+        .enrolledFor .contWrap .qrCode {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            width: 100px;
+        }
+
+            .enrolledFor .contWrap .qrCode img {
+                width: 100%;
+            }
+
+.enrolledForLeft {
+    width: 50%;
+    border: 1px #ccc solid;
+}
+
+.enrolledForRight {
+    width: 50%;
+    border: 1px #ccc solid;
+    border-left: 0;
+}
+
+    .enrolledForRight .contWrap {
+    }
+
+.enrolledFor h4 {
+    font-size: 18px;
+    padding: 10px;
+    color: #FFF;
+    background: #333;
+    text-transform: uppercase;
+}
+
+    .enrolledFor h4 span {
+        font-size: 16px;
+    }
+
+.enrolledFor .phoneNo {
+    margin: 0;
+}
+
+.enrolledFor .batchAction {
+    margin: 10px 0 0 0;
+    line-height: 1;
+}
+
+.enrolledFor .dropdown-toggle:after {
+    display: none;
+}
+
+.enrolledBatchDetails {
+    padding: 10px;
+    background: #f1f1f1;
+    border: 1px #dee2e6 solid;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .enrolledBatchDetails .boxIcon {
+        width: 50px;
+    }
+
+        .enrolledBatchDetails .boxIcon i {
+            font-size: 50px;
+            line-height: 1;
+        }
+
+    .enrolledBatchDetails .boxTitle {
+        width: calc(100% - 50px);
+        padding-left: 20px;
+    }
+
+    .enrolledBatchDetails .boxTitle span{margin-top:5px;}
+    .enrolledBatchDetails .boxTitle span strong{display:block; font-size:30px;}
+
+    a .badge-light:hover{background:#d9d9d9;}
+
+.reportsCard{display:flex; flex-wrap:wrap; max-width:350px; position:relative;}
+.reportsCard a{position:absolute; left:0; top:0; width:100%; height:100%;}
+.reportsCard .imgWrap{width:60px;}
+.reportsCard .imgWrap img{width:100%; transition:all 0.5s;}
+.reportsCard .contWrap{width:calc(100% - 60px); padding-left:15px;}
+.reportsCard .contWrap h6{font-size:18px; font-weight:700; margin-bottom:0; transition:all 0.5s;}
+.reportsCard .contWrap p{font-size:14px; margin-bottom:0;}
+.reportsCard:hover h6{color:#000;}
+.reportsCard:hover .imgWrap img{transform: scale(1.1);}
+.searchTB {
+    background: #f2f2f2;
+    border: 1px #dee2e6 solid;
+    padding:20px;
+    margin-bottom: 20px;
+}
+.PassPercentageBox{position:relative;}
+.PassPercentageBoxInfo{position:absolute; right:0; top:0; height:100%; display:flex; flex-direction:column;}
+.PassPercentageBoxInfo span{height:50%; padding:10px; display:flex; align-items:center; border-left:1px #ccc solid; border-bottom:1px #ccc solid; font-size:12px;}
+.PassPercentageBoxInfo span:last-child{border-bottom:0;}
+.commList{margin:0; padding:0; list-style:none;}
+.commList li{margin-bottom:10px; position:relative; padding-left:15px;}
+.commList li:after{content:"\f105"; position:absolute; left:0; top:-1px; font-family:FontAwesome; color:#c2151c;}
+.sidebar .sidebar-brand .sidebar-brand-text{margin:38px 0 0 -50px !important;}
+.mand:after {
+    content: " *";
+    font-size: 16px;
+    color: red;
+}
+.btn1 {
+    position: relative;
+    background: #c2151c;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: capitalize;
+    padding: 10px 25px;
+    z-index: 1;
+    transition: .5s;
+    display: inline-block;
+    border: 0;
+    border-radius:6px;
+}
+.btn1:hover{color:#FFF;/* transform:scale(1.1); transition:0.5s;*/ background:#222; cursor:pointer;}
+
+.btn1.btnWhite{
+    background: #fff;
+    color: #000;
+}
+.btn1.btnGrey{
+    background: #222333;
+    color: #FFF;
+}
+.btn1.btnDisable{opacity:0.6; pointer-events:none;}
+
+.btn1:before {
+    position: absolute;
+    /*content: "";*/
+    top: 5px;
+    left: 5px;
+    right: -5px;
+    bottom: -5px;
+    border: 1px solid #e11b22;
+    z-index: -1;
+    transition: .5s;
+}
+.btn1:hover:before {
+    transform: translate(-10px,-10px);
+}
+
+.btn1Small {
+    font-size: 12px;
+    padding: 10px 20px;
+}

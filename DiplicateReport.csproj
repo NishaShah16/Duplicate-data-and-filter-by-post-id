@@ -1,0 +1,782 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{88BEC231-1CD1-4C60-8C3C-E697AF3D883E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DiplicateReport</RootNamespace>
+    <AssemblyName>DiplicateReport</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44323</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.3.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Http.Abstractions.2.3.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.3.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Http.Features.2.3.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions, Version=2.3.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Mvc.Abstractions.2.3.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions, Version=2.3.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Routing.Abstractions.2.3.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Primitives, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Primitives.8.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.3.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Net.Http.Headers.2.3.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.6.0\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DuplicateController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataClass.cs" />
+    <Compile Include="Models\Duplicate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\extra.css" />
+    <Content Include="css\extra.min.css" />
+    <Content Include="css\mCustomScrollbar.min.css" />
+    <Content Include="css\sb-admin-2.css" />
+    <Content Include="css\sb-admin-2.min.css" />
+    <Content Include="css\slick.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\styleAdmin.css" />
+    <Content Include="css\theme.css" />
+    <Content Include="Duplicate Registration\100_0_10021436687_P.jpg" />
+    <Content Include="Duplicate Registration\100_1_10006108592_P.jpg" />
+    <Content Include="Duplicate Registration\102_0_10018817400_P.jpg" />
+    <Content Include="Duplicate Registration\102_1_10019530515_P.jpg" />
+    <Content Include="Duplicate Registration\103_10008290175_P.jpg" />
+    <Content Include="Duplicate Registration\103_10021278888_P.jpg" />
+    <Content Include="Duplicate Registration\104_10019642902_P.jpg" />
+    <Content Include="Duplicate Registration\104_10019726569_P.jpg" />
+    <Content Include="Duplicate Registration\109_10014040194_P.jpg" />
+    <Content Include="Duplicate Registration\109_10020896851_P.jpg" />
+    <Content Include="Duplicate Registration\110_10019871942_P.jpg" />
+    <Content Include="Duplicate Registration\110_10020588773_P.jpg" />
+    <Content Include="Duplicate Registration\112_0_10019803832_P.jpg" />
+    <Content Include="Duplicate Registration\112_1_10020461756_P.jpg" />
+    <Content Include="Duplicate Registration\113_10016242995_P.jpg" />
+    <Content Include="Duplicate Registration\113_10017288827_P.jpg" />
+    <Content Include="Duplicate Registration\115_0_10001079995_P.jpg" />
+    <Content Include="Duplicate Registration\115_10019702643_P.jpg" />
+    <Content Include="Duplicate Registration\115_10021040619_P.jpg" />
+    <Content Include="Duplicate Registration\115_1_10020178625_P.jpg" />
+    <Content Include="Duplicate Registration\116_0_10020533902_P.jpg" />
+    <Content Include="Duplicate Registration\116_1_10020261518_P.jpg" />
+    <Content Include="Duplicate Registration\122_0_10006108676_P.jpg" />
+    <Content Include="Duplicate Registration\122_1_10000043874_P.jpg" />
+    <Content Include="Duplicate Registration\123_10005790891_P.jpg" />
+    <Content Include="Duplicate Registration\123_10021018279_P.jpg" />
+    <Content Include="Duplicate Registration\128_10001138396_P.jpg" />
+    <Content Include="Duplicate Registration\128_10007661495_P.jpg" />
+    <Content Include="Duplicate Registration\138_0_10008450861_P.jpg" />
+    <Content Include="Duplicate Registration\138_1_10001112877_P.jpg" />
+    <Content Include="Duplicate Registration\141_10020892702_P.jpg" />
+    <Content Include="Duplicate Registration\141_10020898352_P.jpg" />
+    <Content Include="Duplicate Registration\144_0_10021412287_P.jpg" />
+    <Content Include="Duplicate Registration\144_10010343714_P.jpg" />
+    <Content Include="Duplicate Registration\144_10019630916_P.jpg" />
+    <Content Include="Duplicate Registration\144_10021373705_P.jpg" />
+    <Content Include="Duplicate Registration\144_1_10006572965_P.jpg" />
+    <Content Include="Duplicate Registration\147_10017699800_P.jpg" />
+    <Content Include="Duplicate Registration\147_10019443322_P.jpg" />
+    <Content Include="Duplicate Registration\148_0_10020029304_P.jpg" />
+    <Content Include="Duplicate Registration\148_1_10017971806_P.jpg" />
+    <Content Include="Duplicate Registration\149_10020619232_P.jpg" />
+    <Content Include="Duplicate Registration\149_10020622764_P.jpg" />
+    <Content Include="Duplicate Registration\152_0_10020520841_P.jpg" />
+    <Content Include="Duplicate Registration\152_1_10020523919_P.jpg" />
+    <Content Include="Duplicate Registration\153_10020061192_P.jpg" />
+    <Content Include="Duplicate Registration\153_10020063880_P.jpg" />
+    <Content Include="Duplicate Registration\155_0_10000015619_P.jpg" />
+    <Content Include="Duplicate Registration\155_1_10016192294_P.jpg" />
+    <Content Include="Duplicate Registration\159_10010039567_P.jpg" />
+    <Content Include="Duplicate Registration\159_10021451669_P.jpg" />
+    <Content Include="Duplicate Registration\161_0_10019680487_P.jpg" />
+    <Content Include="Duplicate Registration\161_1_10021298716_P.jpg" />
+    <Content Include="Duplicate Registration\163_10020212374_P.jpg" />
+    <Content Include="Duplicate Registration\163_10020316342_P.jpg" />
+    <Content Include="Duplicate Registration\164_10019338444_P.jpg" />
+    <Content Include="Duplicate Registration\164_10019415054_P.jpg" />
+    <Content Include="Duplicate Registration\166_0_10019305395_P.jpg" />
+    <Content Include="Duplicate Registration\166_1_10019411334_P.jpg" />
+    <Content Include="Duplicate Registration\169_10013763167_P.jpg" />
+    <Content Include="Duplicate Registration\169_10015540670_P.jpg" />
+    <Content Include="Duplicate Registration\171_0_10014209213_P.jpg" />
+    <Content Include="Duplicate Registration\171_1_10020561466_P.jpg" />
+    <Content Include="Duplicate Registration\174_0_10018644341_P.jpg" />
+    <Content Include="Duplicate Registration\174_10020318929_P.jpg" />
+    <Content Include="Duplicate Registration\174_10020332744_P.jpg" />
+    <Content Include="Duplicate Registration\174_1_10021049509_P.jpg" />
+    <Content Include="Duplicate Registration\176_10020375359_P.jpg" />
+    <Content Include="Duplicate Registration\176_10020913247_P.jpg" />
+    <Content Include="Duplicate Registration\189_0_10019448426_P.jpg" />
+    <Content Include="Duplicate Registration\189_10019626360_P.jpg" />
+    <Content Include="Duplicate Registration\189_10021146569_P.jpg" />
+    <Content Include="Duplicate Registration\189_1_10019449815_P.jpg" />
+    <Content Include="Duplicate Registration\18_10018892725_P.jpg" />
+    <Content Include="Duplicate Registration\18_10019906935_P.jpg" />
+    <Content Include="Duplicate Registration\18_10020809695_P.jpg" />
+    <Content Include="Duplicate Registration\193_0_10021148233_P.jpg" />
+    <Content Include="Duplicate Registration\193_1_10021389729_P.jpg" />
+    <Content Include="Duplicate Registration\1_10013377817_P.jpg" />
+    <Content Include="Duplicate Registration\201_0_10016662909_P.jpg" />
+    <Content Include="Duplicate Registration\201_1_10020174714_P.jpg" />
+    <Content Include="Duplicate Registration\206_10021336156_P.jpg" />
+    <Content Include="Duplicate Registration\206_10021555178_P.jpg" />
+    <Content Include="Duplicate Registration\207_0_10017996113_P.jpg" />
+    <Content Include="Duplicate Registration\207_10020287476_P.jpg" />
+    <Content Include="Duplicate Registration\207_10020919789_P.jpg" />
+    <Content Include="Duplicate Registration\207_1_10013872243_P.jpg" />
+    <Content Include="Duplicate Registration\208_10015041061_P.jpg" />
+    <Content Include="Duplicate Registration\208_10016565261_P.jpg" />
+    <Content Include="Duplicate Registration\209_0_10000711535_P.jpg" />
+    <Content Include="Duplicate Registration\209_1_10000712860_P.jpg" />
+    <Content Include="Duplicate Registration\20_10000013898_P.jpg" />
+    <Content Include="Duplicate Registration\20_10001091517_P.jpg" />
+    <Content Include="Duplicate Registration\20_10020477194_P.jpg" />
+    <Content Include="Duplicate Registration\210_0_10021210308_P.jpg" />
+    <Content Include="Duplicate Registration\210_1_10013686368_P.jpg" />
+    <Content Include="Duplicate Registration\211_0_10000099475_P.jpg" />
+    <Content Include="Duplicate Registration\211_1_10017952340_P.jpg" />
+    <Content Include="Duplicate Registration\218_0_10021204614_P.jpg" />
+    <Content Include="Duplicate Registration\218_1_10021370596_P.jpg" />
+    <Content Include="Duplicate Registration\219_0_10018855889_P.jpg" />
+    <Content Include="Duplicate Registration\219_1_10019737933_P.jpg" />
+    <Content Include="Duplicate Registration\21_10018635270_P.jpg" />
+    <Content Include="Duplicate Registration\21_10019503534_P.jpg" />
+    <Content Include="Duplicate Registration\21_10020918349_P.jpg" />
+    <Content Include="Duplicate Registration\226_10014598746_P.jpg" />
+    <Content Include="Duplicate Registration\226_10016246664_P.jpg" />
+    <Content Include="Duplicate Registration\229_0_10021355929_P.jpg" />
+    <Content Include="Duplicate Registration\229_1_10015412454_P.jpg" />
+    <Content Include="Duplicate Registration\230_10002078020_P.jpg" />
+    <Content Include="Duplicate Registration\230_10014871927_P.jpg" />
+    <Content Include="Duplicate Registration\236_0_10021215309_P.jpg" />
+    <Content Include="Duplicate Registration\236_1_10020980599_P.jpg" />
+    <Content Include="Duplicate Registration\237_0_10021303392_P.jpg" />
+    <Content Include="Duplicate Registration\237_1_10000772563_P.jpg" />
+    <Content Include="Duplicate Registration\243_10006332658_P.jpg" />
+    <Content Include="Duplicate Registration\243_10021046947_P.jpg" />
+    <Content Include="Duplicate Registration\244_10014218343_P.jpg" />
+    <Content Include="Duplicate Registration\244_10019902779_P.jpg" />
+    <Content Include="Duplicate Registration\248_0_10018601484_P.jpg" />
+    <Content Include="Duplicate Registration\248_1_10021365616_P.jpg" />
+    <Content Include="Duplicate Registration\258_10014986395_P.jpg" />
+    <Content Include="Duplicate Registration\258_10019295641_P.jpg" />
+    <Content Include="Duplicate Registration\261_0_10012745971_P.jpg" />
+    <Content Include="Duplicate Registration\261_1_10020242871_P.jpg" />
+    <Content Include="Duplicate Registration\262_10018799952_P.jpg" />
+    <Content Include="Duplicate Registration\262_10020093577_P.jpg" />
+    <Content Include="Duplicate Registration\263_0_10021099617_P.jpg" />
+    <Content Include="Duplicate Registration\263_1_10016966468_P.jpg" />
+    <Content Include="Duplicate Registration\265_0_10020149587_P.jpg" />
+    <Content Include="Duplicate Registration\265_1_10021409233_P.jpg" />
+    <Content Include="Duplicate Registration\266_0_10020220001_P.jpg" />
+    <Content Include="Duplicate Registration\266_10018488463_P.jpg" />
+    <Content Include="Duplicate Registration\266_10019319935_P.jpg" />
+    <Content Include="Duplicate Registration\266_1_10021429238_P.jpg" />
+    <Content Include="Duplicate Registration\270_10006685882_P.jpg" />
+    <Content Include="Duplicate Registration\270_10018881988_P.jpg" />
+    <Content Include="Duplicate Registration\272_0_10018328156_P.jpg" />
+    <Content Include="Duplicate Registration\272_10020933557_P.jpg" />
+    <Content Include="Duplicate Registration\272_10020937815_P.jpg" />
+    <Content Include="Duplicate Registration\272_1_10020638132_P.jpg" />
+    <Content Include="Duplicate Registration\274_0_10008017279_P.jpg" />
+    <Content Include="Duplicate Registration\274_1_10020853824_P.jpg" />
+    <Content Include="Duplicate Registration\276_10009428839_P.jpg" />
+    <Content Include="Duplicate Registration\276_10013071611_P.jpg" />
+    <Content Include="Duplicate Registration\27_0_10018918973_P.jpg" />
+    <Content Include="Duplicate Registration\27_1_10019006246_P.jpg" />
+    <Content Include="Duplicate Registration\281_0_10020551977_P.jpg" />
+    <Content Include="Duplicate Registration\281_1_10001302315_P.jpg" />
+    <Content Include="Duplicate Registration\290_0_10015548125_P.jpg" />
+    <Content Include="Duplicate Registration\290_1_10019208960_P.jpg" />
+    <Content Include="Duplicate Registration\293_0_10019466214_P.jpg" />
+    <Content Include="Duplicate Registration\293_1_10018733356_P.jpg" />
+    <Content Include="Duplicate Registration\29_0_10017960452_P.jpg" />
+    <Content Include="Duplicate Registration\29_1_10018608888_P.jpg" />
+    <Content Include="Duplicate Registration\308_0_10005932445_P.jpg" />
+    <Content Include="Duplicate Registration\308_1_10005938148_P.jpg" />
+    <Content Include="Duplicate Registration\320_0_10021075260_P.jpg" />
+    <Content Include="Duplicate Registration\320_1_10021457068_P.jpg" />
+    <Content Include="Duplicate Registration\321_0_10019511576_P.jpg" />
+    <Content Include="Duplicate Registration\321_1_10020168364_P.jpg" />
+    <Content Include="Duplicate Registration\333_10011916629_P.jpg" />
+    <Content Include="Duplicate Registration\333_10018327830_P.jpg" />
+    <Content Include="Duplicate Registration\335_0_10020293693_P.jpg" />
+    <Content Include="Duplicate Registration\335_1_10020307609_P.jpg" />
+    <Content Include="Duplicate Registration\339_10020286520_P.jpg" />
+    <Content Include="Duplicate Registration\339_10020642290_P.jpg" />
+    <Content Include="Duplicate Registration\341_10012275312_P.jpg" />
+    <Content Include="Duplicate Registration\341_10017937763_P.jpg" />
+    <Content Include="Duplicate Registration\342_10013338561_P.jpg" />
+    <Content Include="Duplicate Registration\342_10021148049_P.jpg" />
+    <Content Include="Duplicate Registration\343_0_10005949711_P.jpg" />
+    <Content Include="Duplicate Registration\343_1_10018445572_P.jpg" />
+    <Content Include="Duplicate Registration\347_10020750450_P.jpg" />
+    <Content Include="Duplicate Registration\347_10021521565_P.jpg" />
+    <Content Include="Duplicate Registration\349_0_10020580126_P.jpg" />
+    <Content Include="Duplicate Registration\349_1_10020998333_P.jpg" />
+    <Content Include="Duplicate Registration\34_10010727326_P.jpg" />
+    <Content Include="Duplicate Registration\34_10017991093_P.jpg" />
+    <Content Include="Duplicate Registration\352_10021162845_P.jpg" />
+    <Content Include="Duplicate Registration\352_10021292267_P.jpg" />
+    <Content Include="Duplicate Registration\353_0_10019004520_P.jpg" />
+    <Content Include="Duplicate Registration\353_1_10019009873_P.jpg" />
+    <Content Include="Duplicate Registration\367_10017909383_P.jpg" />
+    <Content Include="Duplicate Registration\367_10017909859_P.jpg" />
+    <Content Include="Duplicate Registration\369_0_10021536827_P.jpg" />
+    <Content Include="Duplicate Registration\369_1_10021237519_P.jpg" />
+    <Content Include="Duplicate Registration\373_0_10021553822_P.jpg" />
+    <Content Include="Duplicate Registration\373_1_10021555959_P.jpg" />
+    <Content Include="Duplicate Registration\380_0_10020277243_P.jpg" />
+    <Content Include="Duplicate Registration\380_1_10020279602_P.jpg" />
+    <Content Include="Duplicate Registration\382_0_10019640198_P.jpg" />
+    <Content Include="Duplicate Registration\382_1_10019559535_P.jpg" />
+    <Content Include="Duplicate Registration\388_0_10011036817_P.jpg" />
+    <Content Include="Duplicate Registration\388_1_10014188518_P.jpg" />
+    <Content Include="Duplicate Registration\391_0_10014088521_P.jpg" />
+    <Content Include="Duplicate Registration\391_1_10020908602_P.jpg" />
+    <Content Include="Duplicate Registration\39_10011171991_P.jpg" />
+    <Content Include="Duplicate Registration\39_10017887294_P.jpg" />
+    <Content Include="Duplicate Registration\400_0_10021132648_P.jpg" />
+    <Content Include="Duplicate Registration\400_1_10016555749_P.jpg" />
+    <Content Include="Duplicate Registration\401_10000052652_P.jpg" />
+    <Content Include="Duplicate Registration\401_10020053456_P.jpg" />
+    <Content Include="Duplicate Registration\403_10020566883_P.jpg" />
+    <Content Include="Duplicate Registration\403_10020694513_P.jpg" />
+    <Content Include="Duplicate Registration\406_10020714192_P.jpg" />
+    <Content Include="Duplicate Registration\406_10020721420_P.jpg" />
+    <Content Include="Duplicate Registration\412_10020412253_P.jpg" />
+    <Content Include="Duplicate Registration\412_10020776470_P.jpg" />
+    <Content Include="Duplicate Registration\413_0_10018673233_P.jpg" />
+    <Content Include="Duplicate Registration\413_1_10020659012_P.jpg" />
+    <Content Include="Duplicate Registration\422_0_10001609128_P.jpg" />
+    <Content Include="Duplicate Registration\422_1_10018023696_P.jpg" />
+    <Content Include="Duplicate Registration\424_0_10015309096_P.jpg" />
+    <Content Include="Duplicate Registration\424_1_10018206322_P.jpg" />
+    <Content Include="Duplicate Registration\428_0_10021080381_P.jpg" />
+    <Content Include="Duplicate Registration\428_1_10021247838_P.jpg" />
+    <Content Include="Duplicate Registration\429_0_10021325336_P.jpg" />
+    <Content Include="Duplicate Registration\429_1_10020924831_P.jpg" />
+    <Content Include="Duplicate Registration\42_10021283051_P.jpg" />
+    <Content Include="Duplicate Registration\42_10021406726_P.jpg" />
+    <Content Include="Duplicate Registration\432_0_10021498283_P.jpg" />
+    <Content Include="Duplicate Registration\432_1_10021168422_P.jpg" />
+    <Content Include="Duplicate Registration\435_0_10018514551_P.jpg" />
+    <Content Include="Duplicate Registration\435_1_10019113240_P.jpg" />
+    <Content Include="Duplicate Registration\437_0_10020003656_P.jpg" />
+    <Content Include="Duplicate Registration\437_1_10008157172_P.jpg" />
+    <Content Include="Duplicate Registration\438_10019935938_P.jpg" />
+    <Content Include="Duplicate Registration\438_10021212967_P.jpg" />
+    <Content Include="Duplicate Registration\43_10020822292_P.jpg" />
+    <Content Include="Duplicate Registration\43_10020826204_P.jpg" />
+    <Content Include="Duplicate Registration\440_0_10019063845_P.jpg" />
+    <Content Include="Duplicate Registration\440_1_10020992667_P.jpg" />
+    <Content Include="Duplicate Registration\442_0_10021072441_P.jpg" />
+    <Content Include="Duplicate Registration\442_10014386211_P.jpg" />
+    <Content Include="Duplicate Registration\442_10019762515_P.jpg" />
+    <Content Include="Duplicate Registration\442_1_10013377092_P.jpg" />
+    <Content Include="Duplicate Registration\448_0_10019041110_P.jpg" />
+    <Content Include="Duplicate Registration\448_1_10019776764_P.jpg" />
+    <Content Include="Duplicate Registration\44_0_10015999034_P.jpg" />
+    <Content Include="Duplicate Registration\44_1_10019961231_P.jpg" />
+    <Content Include="Duplicate Registration\451_10020082247_P.jpg" />
+    <Content Include="Duplicate Registration\451_10020838604_P.jpg" />
+    <Content Include="Duplicate Registration\457_0_10019047176_P.jpg" />
+    <Content Include="Duplicate Registration\457_1_10019861689_P.jpg" />
+    <Content Include="Duplicate Registration\458_0_10020440274_P.jpg" />
+    <Content Include="Duplicate Registration\458_1_10020601718_P.jpg" />
+    <Content Include="Duplicate Registration\45_10021364396_P.jpg" />
+    <Content Include="Duplicate Registration\45_10021369264_P.jpg" />
+    <Content Include="Duplicate Registration\461_0_10014532559_P.jpg" />
+    <Content Include="Duplicate Registration\461_1_10019339667_P.jpg" />
+    <Content Include="Duplicate Registration\464_0_10018253803_P.jpg" />
+    <Content Include="Duplicate Registration\464_1_10018262408_P.jpg" />
+    <Content Include="Duplicate Registration\467_0_10009043977_P.jpg" />
+    <Content Include="Duplicate Registration\467_1_10018202376_P.jpg" />
+    <Content Include="Duplicate Registration\46_0_10018930720_P.jpg" />
+    <Content Include="Duplicate Registration\46_1_10019483656_P.jpg" />
+    <Content Include="Duplicate Registration\475_0_10019373306_P.jpg" />
+    <Content Include="Duplicate Registration\475_1_10020908107_P.jpg" />
+    <Content Include="Duplicate Registration\478_0_10018070719_P.jpg" />
+    <Content Include="Duplicate Registration\478_1_10021424531_P.jpg" />
+    <Content Include="Duplicate Registration\47_0_10000724886_P.jpg" />
+    <Content Include="Duplicate Registration\47_1_10019961231_P.jpg" />
+    <Content Include="Duplicate Registration\482_0_10020713284_P.jpg" />
+    <Content Include="Duplicate Registration\482_1_10020930281_P.jpg" />
+    <Content Include="Duplicate Registration\490_10010926801_P.jpg" />
+    <Content Include="Duplicate Registration\490_10019018891_P.jpg" />
+    <Content Include="Duplicate Registration\4_10002050356_P.jpg" />
+    <Content Include="Duplicate Registration\4_10005769331_P.jpg" />
+    <Content Include="Duplicate Registration\500_0_10010956472_P.jpg" />
+    <Content Include="Duplicate Registration\500_1_10020947509_P.jpg" />
+    <Content Include="Duplicate Registration\509_10008978904_P.jpg" />
+    <Content Include="Duplicate Registration\509_10012506397_P.jpg" />
+    <Content Include="Duplicate Registration\511_0_10020466123_P.jpg" />
+    <Content Include="Duplicate Registration\511_1_10020719824_P.jpg" />
+    <Content Include="Duplicate Registration\515_10000914997_P.jpg" />
+    <Content Include="Duplicate Registration\515_10005762735_P.jpg" />
+    <Content Include="Duplicate Registration\521_0_10019149649_P.jpg" />
+    <Content Include="Duplicate Registration\521_10021087323_P.jpg" />
+    <Content Include="Duplicate Registration\521_10021358211_P.jpg" />
+    <Content Include="Duplicate Registration\521_1_10020544346_P.jpg" />
+    <Content Include="Duplicate Registration\523_0_10021348522_P.jpg" />
+    <Content Include="Duplicate Registration\523_1_10021350918_P.jpg" />
+    <Content Include="Duplicate Registration\527_0_10021215053_P.jpg" />
+    <Content Include="Duplicate Registration\527_1_10008542517_P.jpg" />
+    <Content Include="Duplicate Registration\529_0_10020431772_P.jpg" />
+    <Content Include="Duplicate Registration\529_1_10020766889_P.jpg" />
+    <Content Include="Duplicate Registration\532_0_10011789765_P.jpg" />
+    <Content Include="Duplicate Registration\532_10013807143_P.jpg" />
+    <Content Include="Duplicate Registration\532_10018166020_P.jpg" />
+    <Content Include="Duplicate Registration\532_1_10018115801_P.jpg" />
+    <Content Include="Duplicate Registration\533_0_10021324924_P.jpg" />
+    <Content Include="Duplicate Registration\533_1_10020985157_P.jpg" />
+    <Content Include="Duplicate Registration\534_0_10000839586_P.jpg" />
+    <Content Include="Duplicate Registration\534_1_10021289455_P.jpg" />
+    <Content Include="Duplicate Registration\537_10019865134_P.jpg" />
+    <Content Include="Duplicate Registration\537_10020702231_P.jpg" />
+    <Content Include="Duplicate Registration\547_0_10018297977_P.jpg" />
+    <Content Include="Duplicate Registration\547_1_10020951886_P.jpg" />
+    <Content Include="Duplicate Registration\549_0_10018744774_P.jpg" />
+    <Content Include="Duplicate Registration\549_1_10000729559_P.jpg" />
+    <Content Include="Duplicate Registration\552_10016157792_P.jpg" />
+    <Content Include="Duplicate Registration\552_10018005420_P.jpg" />
+    <Content Include="Duplicate Registration\555_0_10019250413_P.jpg" />
+    <Content Include="Duplicate Registration\555_1_10021153004_P.jpg" />
+    <Content Include="Duplicate Registration\556_0_10005506429_P.jpg" />
+    <Content Include="Duplicate Registration\556_1_10018115801_P.jpg" />
+    <Content Include="Duplicate Registration\557_0_10021459933_P.jpg" />
+    <Content Include="Duplicate Registration\557_1_10021173951_P.jpg" />
+    <Content Include="Duplicate Registration\558_0_10018653829_P.jpg" />
+    <Content Include="Duplicate Registration\558_1_10019345617_P.jpg" />
+    <Content Include="Duplicate Registration\55_0_10017984979_P.jpg" />
+    <Content Include="Duplicate Registration\55_1_10014662603_P.jpg" />
+    <Content Include="Duplicate Registration\564_0_10015029295_P.jpg" />
+    <Content Include="Duplicate Registration\564_1_10018109509_P.jpg" />
+    <Content Include="Duplicate Registration\566_10021361231_P.jpg" />
+    <Content Include="Duplicate Registration\566_10021369379_P.jpg" />
+    <Content Include="Duplicate Registration\568_10001126227_P.jpg" />
+    <Content Include="Duplicate Registration\568_10013912704_P.jpg" />
+    <Content Include="Duplicate Registration\569_0_10018081330_P.jpg" />
+    <Content Include="Duplicate Registration\569_1_10018179264_P.jpg" />
+    <Content Include="Duplicate Registration\594_0_10012114315_P.jpg" />
+    <Content Include="Duplicate Registration\594_1_10011985441_P.jpg" />
+    <Content Include="Duplicate Registration\5_10019609764_P.jpg" />
+    <Content Include="Duplicate Registration\5_10019611187_P.jpg" />
+    <Content Include="Duplicate Registration\5_10019621651_P.jpg" />
+    <Content Include="Duplicate Registration\5_10019718373_P.jpg" />
+    <Content Include="Duplicate Registration\601_0_10018014888_P.jpg" />
+    <Content Include="Duplicate Registration\601_1_10017818382_P.jpg" />
+    <Content Include="Duplicate Registration\605_10012627086_P.jpg" />
+    <Content Include="Duplicate Registration\605_10019655061_P.jpg" />
+    <Content Include="Duplicate Registration\607_10018469405_P.jpg" />
+    <Content Include="Duplicate Registration\607_10019442753_P.jpg" />
+    <Content Include="Duplicate Registration\610_0_10012184009_P.jpg" />
+    <Content Include="Duplicate Registration\610_1_10021549476_P.jpg" />
+    <Content Include="Duplicate Registration\615_0_10000135824_P.jpg" />
+    <Content Include="Duplicate Registration\615_1_10018661969_P.jpg" />
+    <Content Include="Duplicate Registration\618_10015087611_P.jpg" />
+    <Content Include="Duplicate Registration\618_10020224755_P.jpg" />
+    <Content Include="Duplicate Registration\619_0_10016801057_P.jpg" />
+    <Content Include="Duplicate Registration\619_1_10020515002_P.jpg" />
+    <Content Include="Duplicate Registration\61_0_10010866901_P.jpg" />
+    <Content Include="Duplicate Registration\61_1_10019025280_P.jpg" />
+    <Content Include="Duplicate Registration\626_0_10021275422_P.jpg" />
+    <Content Include="Duplicate Registration\626_10018768112_P.jpg" />
+    <Content Include="Duplicate Registration\626_10020079668_P.jpg" />
+    <Content Include="Duplicate Registration\626_1_10021282884_P.jpg" />
+    <Content Include="Duplicate Registration\627_0_10021168886_P.jpg" />
+    <Content Include="Duplicate Registration\627_1_10020972609_P.jpg" />
+    <Content Include="Duplicate Registration\62_0_10019660611_P.jpg" />
+    <Content Include="Duplicate Registration\62_1_10019025280_P.jpg" />
+    <Content Include="Duplicate Registration\644_0_10020185744_P.jpg" />
+    <Content Include="Duplicate Registration\644_1_10021460086_P.jpg" />
+    <Content Include="Duplicate Registration\647_0_10018155004_P.jpg" />
+    <Content Include="Duplicate Registration\647_1_10011794363_P.jpg" />
+    <Content Include="Duplicate Registration\653_0_10017393693_P.jpg" />
+    <Content Include="Duplicate Registration\653_1_10020516672_P.jpg" />
+    <Content Include="Duplicate Registration\659_0_10020166641_P.jpg" />
+    <Content Include="Duplicate Registration\659_1_10021353106_P.jpg" />
+    <Content Include="Duplicate Registration\65_10010983069_P.jpg" />
+    <Content Include="Duplicate Registration\65_10014378408_P.jpg" />
+    <Content Include="Duplicate Registration\666_0_10013977222_P.jpg" />
+    <Content Include="Duplicate Registration\666_1_10018211248_P.jpg" />
+    <Content Include="Duplicate Registration\676_0_10013403143_P.jpg" />
+    <Content Include="Duplicate Registration\676_1_10005909990_P.jpg" />
+    <Content Include="Duplicate Registration\680_0_10020157257_P.jpg" />
+    <Content Include="Duplicate Registration\680_1_10021353106_P.jpg" />
+    <Content Include="Duplicate Registration\696_0_10018948887_P.jpg" />
+    <Content Include="Duplicate Registration\696_1_10008394889_P.jpg" />
+    <Content Include="Duplicate Registration\710_0_10020122182_P.jpg" />
+    <Content Include="Duplicate Registration\710_1_10020125994_P.jpg" />
+    <Content Include="Duplicate Registration\716_0_10018820181_P.jpg" />
+    <Content Include="Duplicate Registration\716_1_10021338350_P.jpg" />
+    <Content Include="Duplicate Registration\723_0_10020717394_P.jpg" />
+    <Content Include="Duplicate Registration\723_1_10021178695_P.jpg" />
+    <Content Include="Duplicate Registration\732_0_10018128469_P.jpg" />
+    <Content Include="Duplicate Registration\732_1_10020611950_P.jpg" />
+    <Content Include="Duplicate Registration\736_0_10020943149_P.jpg" />
+    <Content Include="Duplicate Registration\736_1_10016741354_P.jpg" />
+    <Content Include="Duplicate Registration\73_10019813637_P.jpg" />
+    <Content Include="Duplicate Registration\73_10020904358_P.jpg" />
+    <Content Include="Duplicate Registration\746_0_10020972609_P.jpg" />
+    <Content Include="Duplicate Registration\746_1_10021143729_P.jpg" />
+    <Content Include="Duplicate Registration\748_0_10021168886_P.jpg" />
+    <Content Include="Duplicate Registration\748_1_10021143729_P.jpg" />
+    <Content Include="Duplicate Registration\74_0_10021256143_P.jpg" />
+    <Content Include="Duplicate Registration\74_1_10021500105_P.jpg" />
+    <Content Include="Duplicate Registration\763_0_10020390816_P.jpg" />
+    <Content Include="Duplicate Registration\763_1_10020815953_P.jpg" />
+    <Content Include="Duplicate Registration\768_0_10018983103_P.jpg" />
+    <Content Include="Duplicate Registration\768_1_10018981018_P.jpg" />
+    <Content Include="Duplicate Registration\76_0_10019699819_P.jpg" />
+    <Content Include="Duplicate Registration\76_1_10020728106_P.jpg" />
+    <Content Include="Duplicate Registration\777_0_10021257631_P.jpg" />
+    <Content Include="Duplicate Registration\777_1_10020478542_P.jpg" />
+    <Content Include="Duplicate Registration\788_0_10021002438_P.jpg" />
+    <Content Include="Duplicate Registration\788_1_10020993070_P.jpg" />
+    <Content Include="Duplicate Registration\796_0_10020783724_P.jpg" />
+    <Content Include="Duplicate Registration\796_1_10020577192_P.jpg" />
+    <Content Include="Duplicate Registration\799_0_10021066537_P.jpg" />
+    <Content Include="Duplicate Registration\799_1_10021517478_P.jpg" />
+    <Content Include="Duplicate Registration\803_0_10002076661_P.jpg" />
+    <Content Include="Duplicate Registration\803_1_10008428409_P.jpg" />
+    <Content Include="Duplicate Registration\804_0_10021096262_P.jpg" />
+    <Content Include="Duplicate Registration\804_1_10002083723_P.jpg" />
+    <Content Include="Duplicate Registration\80_10000957207_P.jpg" />
+    <Content Include="Duplicate Registration\80_10002107866_P.jpg" />
+    <Content Include="Duplicate Registration\821_0_10020026262_P.jpg" />
+    <Content Include="Duplicate Registration\821_1_10020586485_P.jpg" />
+    <Content Include="Duplicate Registration\824_0_10021340191_P.jpg" />
+    <Content Include="Duplicate Registration\824_1_10020313821_P.jpg" />
+    <Content Include="Duplicate Registration\832_0_10019771020_P.jpg" />
+    <Content Include="Duplicate Registration\832_1_10019053308_P.jpg" />
+    <Content Include="Duplicate Registration\833_0_10006633181_P.jpg" />
+    <Content Include="Duplicate Registration\833_1_10021226081_P.jpg" />
+    <Content Include="Duplicate Registration\83_0_10014678630_P.jpg" />
+    <Content Include="Duplicate Registration\83_1_10014265156_P.jpg" />
+    <Content Include="Duplicate Registration\846_0_10020680669_P.jpg" />
+    <Content Include="Duplicate Registration\846_1_10008015505_P.jpg" />
+    <Content Include="Duplicate Registration\847_0_10019460675_P.jpg" />
+    <Content Include="Duplicate Registration\847_1_10019465316_P.jpg" />
+    <Content Include="Duplicate Registration\852_0_10020609312_P.jpg" />
+    <Content Include="Duplicate Registration\852_1_10020840352_P.jpg" />
+    <Content Include="Duplicate Registration\855_0_10017907732_P.jpg" />
+    <Content Include="Duplicate Registration\855_1_10017930861_P.jpg" />
+    <Content Include="Duplicate Registration\87_0_10000664719_P.jpg" />
+    <Content Include="Duplicate Registration\87_1_10019681263_P.jpg" />
+    <Content Include="Duplicate Registration\92_0_10016211830_P.jpg" />
+    <Content Include="Duplicate Registration\92_1_10020167595_P.jpg" />
+    <Content Include="Duplicate Registration\95_10021204278_P.jpg" />
+    <Content Include="Duplicate Registration\95_10021207334_P.jpg" />
+    <Content Include="Duplicate Registration\96_10012933639_P.jpg" />
+    <Content Include="Duplicate Registration\96_10017618639_P.jpg" />
+    <Content Include="Duplicate Registration\97_0_10021430654_P.jpg" />
+    <Content Include="Duplicate Registration\97_1_10021316376_P.jpg" />
+    <Content Include="Duplicate Registration\9_0_10021264439_P.jpg" />
+    <Content Include="Duplicate Registration\9_1_10021268540_P.jpg" />
+    <Content Include="Duplicate Registration\file.txt" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="img\10005686701_P.jpg" />
+    <Content Include="img\candidate.png" />
+    <Content Include="img\ChairpersonAdmission.jpg" />
+    <Content Include="img\loginBG.jpg" />
+    <Content Include="img\Logo.png" />
+    <Content Include="img\logoAdmin.png" />
+    <Content Include="img\logoWhite.png" />
+    <Content Include="img\profile.png" />
+    <Content Include="img\sign.jpg" />
+    <Content Include="Scripts\apexcharts.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\bootstrap\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap\bootstrap.min.js.map" />
+    <Content Include="img\Thumbs.db" />
+    <Content Include="Duplicate Registration\Thumbs.db" />
+    <None Include="Scripts\jquery-3.7.0.intellisense.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\chart.js\Chart.bundle.js" />
+    <Content Include="Scripts\chart.js\Chart.bundle.min.js" />
+    <Content Include="Scripts\chart.js\Chart.js" />
+    <Content Include="Scripts\chart.js\Chart.min.js" />
+    <Content Include="Scripts\Custom.js" />
+    <Content Include="Scripts\demo\chart-area-demo.js" />
+    <Content Include="Scripts\demo\chart-bar-demo.js" />
+    <Content Include="Scripts\demo\chart-pie-demo.js" />
+    <Content Include="Scripts\demo\datatables-demo.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.7.0.js" />
+    <Content Include="Scripts\jquery-3.7.0.min.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-easing\jquery.easing.compatibility.js" />
+    <Content Include="Scripts\jquery-easing\jquery.easing.js" />
+    <Content Include="Scripts\jquery-easing\jquery.easing.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\mCustomScrollbar.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\sb-admin-2.min.js" />
+    <Content Include="Scripts\slick.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Duplicate\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53918</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44323/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
